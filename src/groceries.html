@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+    <title>FOODS - Groceries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+    body {
+        background-color:#fab327; /* baby blue */
+        color:#000000; /* vivid baby pink */
+    }
+    footer {
+        background-color: #000000; /* dark gray */
+        color: #ffffff; /* white */
+        padding: 1rem;
+        text-align: center;
+    }
+
+    </style>
+</head>
+<body>
+<header class="shadow-sm animated-header">
+    <nav class="navbar navbar-expand-lg px-0">
+      <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
+        <!-- Toggler (for mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavbarOffcanvas"
+          aria-controls="mainNavbarOffcanvas" aria-label="Toggle navigation"
+          onclick="document.getElementById('mainNavbarOffcanvas').style.width='50vw';">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var offcanvas = document.getElementById('mainNavbarOffcanvas');
+            offcanvas.addEventListener('show.bs.offcanvas', function () {
+              offcanvas.style.width = '50vw';
+            });
+            offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+              offcanvas.style.width = '';
+            });
+          });
+        </script>
+        <style>
+        </style>
+
+        <!-- Offcanvas Navbar (right side) -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNavbarOffcanvas"
+          aria-labelledby="mainNavbarOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mainNavbarOffcanvasLabel">Explore</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav gap-lg-3 flex-lg-row flex-column">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link nav-link-animated">HOME</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown nav-link-animated" href="#" id="productDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"
+                  style="display: flex; align-items: center; gap: 0.4em; text-decoration: none; border: none; box-shadow: none;">
+                  PRODUCT
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="margin-left: 0.2em;">
+                    <path d="M6 8l4 4 4-4" stroke="#1a741a" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                  <li>
+                    <a class="dropdown-item" href="meat.html">Meats</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="groceries.html">Groceries</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="howtouse.html" class="nav-link nav-link-animated">HOW TO BUY</a>
+              </li>
+              <li class="nav-item">
+                <a href="faq.html" class="nav-link nav-link-animated">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link nav-link-animated">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a href="news.html" class="nav-link nav-link-animated">NEWS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Logo fixed to far right -->
+        <div style="height: 56px; width: 56px; margin-right: 2rem;">
+          <img src="img/Screenshot 2025-07-12 164618.png" alt="Logo"
+            style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      .animated-header {
+        animation: fadeInDown 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link-animated,
+      .navbar-nav .nav-link,
+      .dropdown-menu a {
+        color: #1a741a !important;
+        transition: color 0.3s, background 0.3s;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .nav-link-animated::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border-radius: 2px;
+        transform: translateX(-50%);
+        background-color: #1a741a;
+      }
+
+      /* .nav-link-animated:hover {
+          color: #1a741a !important;
+          box-shadow: 0 2px 12px #00000055;
+        } */
+      .nav-link-animated:hover::after {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          gap: 1rem !important;
+        }
+      }
+
+      nav {
+        margin: 0.4rem;
+      }
+
+      .dropdown-menu a {
+        color: #1a741a !important;
+        background-color: #ffffff;
+      }
+
+      .dropdown-menu a:hover {
+        color: #ffffff !important;
+        background-color: #1a741a !important;
+      }
+
+      #mainNavbarOffcanvas {
+        max-width: 50vw !important;
+      }
+
+      @media (max-width: 768px) {
+        #mainNavbarOffcanvas {
+          max-width: 100vw !important;
+        }
+      }
+    </style>
+  </header>
+
+
+
+<main>
+
+  <!-- Hero Section -->
+ <section class="py-5 hero-section" style=" overflow: hidden;">
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between position-relative">
+    <div class="hero-img-wrapper mb-4 mb-md-0 me-md-5">
+      <img src="img/groceries.jpg"
+           alt="Groceries"
+           class="img-fluid hero-img animated-float"
+           style="max-width: 260px; border-radius: 24px; box-shadow: 0 8px 32px #ffffff11, 0 2px 8px #ffffff22;">
+      <div class="hero-img-glow"></div>
+    </div>
+    <div class="text-end hero-text">
+    <h2 class="fw-bold animated-slidein" style="color: #fab327; text-shadow: 0 4px 24px #ffffff22;">
+      Groceries delivered<br><span style="color: #fab327;">with care</span>
+    </h2>
+    <p class="text-light animated-fadein" style="font-size: 1.15rem;">
+      NEEDS Delivery Service brings daily groceries, essentials, and pantry items right to your door.<br>
+      Experience fast, safe, and convenient grocery delivery every time.
+    </p>
+      <a href="howtouse.html" class="btn btn-outline-light mt-2 animated-bounce" id="howToUseBtn">
+        HOW TO BUY
+      </a>
+    </div>
+  </div>
+
+  <style>
+     #howToUseBtn {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff88;
+    box-shadow: 0 2px 12px #ffffff22;
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+  }
+
+  #howToUseBtn:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 16px #ffffff44, 0 2px 8px #ffffff33;
+    transform: translateY(-2px) scale(1.02);
+  }
+    .hero-section {
+      position: relative;
+      min-height: 340px;
+      background: #16a085;
+      box-shadow: 0 8px 32px #00000088;
+      animation: heroFadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    @keyframes heroFadeIn {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-img-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-img {
+      border: 4px solid #ffffff22;
+      transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.5s;
+    }
+
+    .hero-img:hover {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 16px 48px #ffffff33, 0 4px 16px #ffffff22;
+    }
+
+    .hero-img-glow {
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      width: 180px;
+      height: 60px;
+      background: radial-gradient(ellipse at center, #ffffff33 0%, #11111100 80%);
+      filter: blur(16px);
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .animated-float {
+      animation: floatY 3.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatY {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-18px); }
+    }
+
+    .hero-text {
+      z-index: 2;
+      position: relative;
+    }
+
+    .animated-slidein {
+      animation: slideInRight 1.1s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(60px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .animated-fadein {
+      animation: fadeIn 1.8s 0.2s cubic-bezier(.68,-0.55,.27,1.55) both;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .animated-bounce {
+      animation: bounceBtn 1.5s 1.2s cubic-bezier(.68,-0.55,.27,1.55) both;
+    }
+
+    @keyframes bounceBtn {
+      0% { transform: scale(0.8); }
+      60% { transform: scale(1.08); }
+      80% { transform: scale(0.97); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 220px;
+      }
+
+      .hero-img {
+        max-width: 180px !important;
+      }
+
+      .hero-text {
+        text-align: center !important;
+      }
+
+      .container.d-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+    }
+  </style>
+</section>
+
+ <!-- What is NEEDS Delivery Service -->
+  <section class="py-5 digital-cloakroom-section" style=" color: #fff;">
+  <div class="container">
+    <h2 class="fw-bold mb-4" style="color: #ffffff; text-shadow: 0 2px 12px #00000022;text-align: center;">What is NEEDS Delivery Service?</h2>
+    <p class="mb-4" style="color: #ffffff; font-size: 1.15rem;">
+      NEEDS Delivery Service brings fresh vegetables, meats, and groceries right to your doorstep. Order online and enjoy fast, safe, and convenient delivery.
+    </p>
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/order.svg" alt="Order" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Order Online</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/vegetables.svg" alt="Veggies" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Fresh Veggies</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/meat.svg" alt="Meats" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Quality Meats</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/grocery.svg" alt="Groceries" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Daily Groceries</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .digital-cloakroom-section {
+      background: #000000;
+      box-shadow: 0 6px 32px #00000022;
+    }
+
+    .digital-cloakroom-section .icon-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 0.5rem auto;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px #00000022;
+      border: 2px solid #000000;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .digital-cloakroom-section .icon-circle:hover {
+      box-shadow: 0 6px 24px #00000066;
+      background: #eaeaea;
+    }
+
+    @media (max-width: 767px) {
+      .digital-cloakroom-section .icon-circle {
+        width: 48px;
+        height: 48px;
+      }
+
+      .digital-cloakroom-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</section>
+
+
+  <!-- Duration Section -->
+<section class="py-5 duration-section" style="background: #16a085; color: #000000;">
+  <div class="container animate__animated animate__fadeInUp">
+    <h2 class="fw-bold mb-4" style=" text-shadow: 0 2px 12px #00000022;text-align: center;">Delivery Options</h2>
+    <p class="mb-4" style="font-size: 1.15rem; color: #ffffff;text-align: center;">
+      NEEDS Delivery Service offers flexible delivery slots and packages to fit your schedule and needs.
+    </p>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="duration-card p-4 rounded-4 shadow-sm h-100 bg-white animate__animated animate__fadeInLeft">
+          <h5 class="fw-bold mb-3" style="color: #000000;">Standard Delivery</h5>
+          <div class="d-flex gap-3 flex-wrap">
+            <span class="duration-badge">Same Day</span>
+            <span class="duration-badge">Next Day</span>
+            <span class="duration-badge">Scheduled</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="duration-card p-4 rounded-4 shadow-sm h-100 bg-white animate__animated animate__fadeInRight">
+          <h5 class="fw-bold mb-3" style="color: #000000;">Express Delivery</h5>
+          <div class="d-flex gap-3 flex-wrap">
+            <span class="duration-badge">Within 2 Hours</span>
+            <span class="duration-badge">Morning Slot</span>
+            <span class="duration-badge">Evening Slot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .duration-section {
+      background: #ffffff;
+      box-shadow: 0 6px 32px #00000022;
+      overflow: hidden;
+    }
+
+    .duration-card {
+      border: 2px solid #000000;
+      background: #ffffff;
+      transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
+    }
+
+    .duration-card:hover {
+      transform: scale(1.03) rotate(-2deg);
+      box-shadow: 0 8px 32px #00000055;
+      border-color: #000000;
+    }
+
+    .duration-badge {
+      background: #000000;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.05rem;
+      border-radius: 2rem;
+      padding: 0.6rem 1.5rem;
+      box-shadow: 0 2px 12px #00000022;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      cursor: pointer;
+      border: 2px solid #000000;
+      animation: popIn 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .duration-badge:hover {
+      background: #222222;
+      color: #ffffff;
+      box-shadow: 0 6px 24px #00000055;
+      border-color: #222222;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 767px) {
+      .duration-card {
+        padding: 1.2rem !important;
+      }
+      .duration-badge {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.1rem;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+
+
+  <!-- Storage Sizes -->
+  <section class="py-5 storage-sizes-section" style="background: #16a085; border: none;">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4" style="color: #000000; text-shadow: 0 2px 12px #00000011;">Grocery Delivery Options</h2>
+      <p class="text-center text-muted mb-5">Choose from a wide range of daily essentials and pantry items</p>
+
+      <div class="row justify-content-center gap-3 gap-md-0">
+        <!-- Pantry Staples -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+          <div class="storage-card animated-pop border-0 w-100" style="background: #f8f8f8;">
+            <div class="storage-card-glow"></div>
+            <h5 class="text-center mb-3" style="color: #1a741a; font-weight: 700; letter-spacing: 1px;">Pantry Staples</h5>
+            <div class="storage-icon mx-auto mb-2">
+              <svg width="48" height="48" fill="none">
+                <rect x="10" y="14" width="28" height="20" rx="4" fill="#ffe082" stroke="#bfa14a" stroke-width="2"/>
+                <rect x="18" y="8" width="12" height="8" rx="2" fill="#fffde7" stroke="#bfa14a" stroke-width="2"/>
+              </svg>
+            </div>
+            <p class="text-center text-muted small mb-0">Rice, pasta, noodles, flour, sugar, salt, oil</p>
+          </div>
+        </div>
+
+        <!-- Snacks & Beverages -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+          <div class="storage-card animated-pop border-0 w-100" style="background: #f0f0f0;">
+            <div class="storage-card-glow"></div>
+            <h5 class="text-center mb-3" style="color: #d35400; font-weight: 700; letter-spacing: 1px;">Snacks & Beverages</h5>
+            <div class="storage-icon mx-auto mb-2">
+              <svg width="56" height="48" fill="none">
+                <rect x="12" y="18" width="32" height="14" rx="7" fill="#f7ca18" stroke="#d35400" stroke-width="2"/>
+                <ellipse cx="40" cy="36" rx="8" ry="5" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+                <rect x="24" y="8" width="8" height="10" rx="4" fill="#fff" stroke="#d35400" stroke-width="2"/>
+              </svg>
+            </div>
+            <p class="text-center text-muted small mb-0">Biscuits, chips, tea, coffee, juices, soft drinks</p>
+          </div>
+        </div>
+
+        <!-- Household Essentials -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+          <div class="storage-card animated-pop border-0 w-100" style="background: #eaeaea;">
+            <div class="storage-card-glow"></div>
+            <h5 class="text-center mb-3" style="color: #16a085; font-weight: 700; letter-spacing: 1px;">Household Essentials</h5>
+            <div class="storage-icon mx-auto mb-2">
+              <svg width="64" height="48" fill="none">
+                <rect x="10" y="20" width="18" height="18" rx="4" fill="#b2dfdb" stroke="#16a085" stroke-width="2"/>
+                <rect x="36" y="14" width="18" height="24" rx="6" fill="#f1c40f" stroke="#f39c12" stroke-width="2"/>
+                <ellipse cx="24" cy="12" rx="6" ry="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+              </svg>
+            </div>
+            <p class="text-center text-muted small mb-0">Detergents, cleaning supplies, toiletries, paper goods</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <style>
+    .storage-sizes-section {
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 8px 32px #00000011;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .storage-card {
+      background: #f9f9f9;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px #00000011;
+      padding: 2rem 1.2rem 1.5rem 1.2rem;
+      transition: transform 0.35s ease, box-shadow 0.35s;
+      z-index: 1;
+      overflow: hidden;
+      min-height: 220px;
+    }
+
+    .storage-card:hover {
+      box-shadow: 0 12px 36px #00000022;
+      cursor: default;
+    }
+
+    .storage-card-glow {
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      width: 120px;
+      height: 40px;
+      background: radial-gradient(ellipse at center, #00000011 0%, #fff0 80%);
+      filter: blur(18px);
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .storage-icon {
+      width: 56px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: iconFloat 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes iconFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .animated-pop {
+      animation: cardPop 1.1s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    @keyframes cardPop {
+      0% { opacity: 0; transform: scale(0.8); }
+      60% { opacity: 1; transform: scale(1.08); }
+      80% { transform: scale(0.97); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .storage-card {
+        min-height: 180px;
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
+      }
+
+
+    }
+  </style>
+</section>
+
+
+  <!-- FAQ Section -->
+  <section class="py-5 faq-promo-section animate__animated animate__fadeInUp" style="background: #fab327; color: #000000; box-shadow: 0 6px 32px #00000033; overflow: hidden; position: relative;">
+  <!-- Decorative animated shapes -->
+  <!-- <div class="faq-bg-shape shape-1"></div>
+  <div class="faq-bg-shape shape-2"></div> -->
+  <div class="container position-relative z-2">
+    <h2 class="fw-bold mb-3 animate__animated animate__fadeInDown" style="color: #000000; text-shadow: 0 2px 12px #00000022; text-align: center;">Frequently Asked Questions</h2>
+    <div class="d-flex flex-column gap-2 align-items-center">
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.1s;">How do I order from NEEDS Delivery Service?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.2s;">What are your delivery charges?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.3s;">How do I track my order?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.4s;">What payment methods do you accept?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.5s;">Can I change my delivery slot?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.6s;">What if my order is delayed?</a>
+    </div>
+    <div class="text-center mt-4">
+      <a href="faq.html" class="btn btn-lg btn-gradient-neutral px-4 fw-bold animate__animated animate__pulse animate__infinite" style="text-align: center;">Get More Help</a>
+    </div>
+  </div>
+
+  <style>
+    .faq-link {
+      color: #000000;
+      background: #f4f4f4;
+      border-radius: 2rem;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      font-size: 1.08rem;
+      box-shadow: 0 2px 12px #00000022;
+      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 0.2rem;
+      text-shadow: none;
+      display: inline-block;
+      border: 2px solid #00000022;
+      animation-duration: 0.8s;
+    }
+
+    .faq-link:hover, .faq-link:focus {
+      background: #000000;
+      color: #ffffff !important;
+      transform: scale(1.06) translateX(6px);
+      box-shadow: 0 6px 24px #00000055;
+      border-color: #000000;
+      text-decoration: none;
+    }
+
+    .btn-gradient-neutral {
+      background: #000000;
+      color: #ffffff !important;
+      border: none;
+      box-shadow: 0 2px 12px #00000055;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .btn-gradient-neutral:hover, .btn-gradient-neutral:focus {
+      background: #222222;
+      color: #ffffff !important;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 24px #00000088;
+    }
+
+    .faq-bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 5;
+      z-index: 1;
+      pointer-events: none;
+      animation-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .faq-bg-shape.shape-1 {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 30% 30%, #1a741a 60%, #333333 100%);
+      top: -40px;
+      left: -40px;
+      animation: floatFaqShape1 7s ease-in-out infinite alternate;
+    }
+
+    .faq-bg-shape.shape-2 {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 70% 70%, #1a741a 60%, #333333 100%);
+      bottom: -30px;
+      right: -30px;
+      animation: floatFaqShape2 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatFaqShape1 {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(24px) scale(1.08);}
+    }
+
+    @keyframes floatFaqShape2 {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-18px) scale(1.12);}
+    }
+
+    @media (max-width: 767px) {
+      .faq-promo-section { padding: 2rem 0.5rem !important; }
+      .faq-bg-shape.shape-1 { width: 60px; height: 60px; top: -20px; left: -20px;}
+      .faq-bg-shape.shape-2 { width: 40px; height: 40px; bottom: -10px; right: -10px;}
+      .faq-link { font-size: 0.98rem; padding: 0.5rem 1.2rem;}
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-4 mb-4">
+          <a href="../index.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">
+            Home
+          </a>
+
+          <div class="dropdown mb-3">
+            <h4 class="fw-bold text-decoration-none text-pink d-flex align-items-center dropdown-toggle"
+              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="font-size: 1.2rem">
+              Products
+            </h4>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li>
+                <a class="dropdown-item" href="meat.html">Meats</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="groceries.html">Groceries</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex flex-column gap-2">
+          <a href="howtouse.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">How to Buy</a>
+          <a href="faq.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">FAQ</a>
+          <a href="about.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">About</a>
+          <a href="news.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">News</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <hr><br>
+        <p style="color: #ffffff; text-size-adjust: 10px">
+          &copy; <i>2025</i> <b>NEEDS</b> <i>Delivery Service</i>. All rights reserved.
+        </p>
+        <br>
+        <p class="mb-0 small">
+          <i>Revived by,</i>
+          <strong><br /><br /><a href="https://yapverse.com/"><img src="img/yap logo 2_page-0001.jpg" alt=""
+                style="height: 50px" /></a></strong>
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .text-pink {
+        color: #ffffff !important;
+        transition: color 0.3s ease;
+      }
+
+      .text-pink:hover {
+        color: #ffffff !important;
+      }
+
+      footer {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      footer ul li {
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    const depth = (currentPath.match(/\//g) || []).length - 1;
+
+    // Calculates how many levels deep we are (../ for each level)
+    const basePath = "../".repeat(depth > 0 ? depth : 0);
+
+    const navLinks = document.querySelectorAll("nav a, footer a, .dropdown-menu a");
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Fix only src-based internal links
+      if (href && href.startsWith("src/")) {
+        link.setAttribute("href", basePath + href);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

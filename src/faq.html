@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link rel="icon" type="image/png" href="img/Screenshot 2025-06-27 221226.png" />
+    <title>FAQ - Baggage Mobile Locker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+    body {
+        background-color:#fab327; /* baby blue */
+        color: #000000; /* vivid baby pink */
+    }
+    footer {
+        background-color: #000000; /* black */
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+    }
+    
+
+    </style>
+</head>
+<body>
+<header class="shadow-sm animated-header">
+    <nav class="navbar navbar-expand-lg px-0">
+      <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
+        <!-- Toggler (for mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavbarOffcanvas"
+          aria-controls="mainNavbarOffcanvas" aria-label="Toggle navigation"
+          onclick="document.getElementById('mainNavbarOffcanvas').style.width='50vw';">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var offcanvas = document.getElementById('mainNavbarOffcanvas');
+            offcanvas.addEventListener('show.bs.offcanvas', function () {
+              offcanvas.style.width = '50vw';
+            });
+            offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+              offcanvas.style.width = '';
+            });
+          });
+        </script>
+        <style>
+        </style>
+
+        <!-- Offcanvas Navbar (right side) -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNavbarOffcanvas"
+          aria-labelledby="mainNavbarOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mainNavbarOffcanvasLabel">Explore</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav gap-lg-3 flex-lg-row flex-column">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link nav-link-animated">HOME</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown nav-link-animated" href="#" id="productDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"
+                  style="display: flex; align-items: center; gap: 0.4em; text-decoration: none; border: none; box-shadow: none;">
+                  PRODUCT
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="margin-left: 0.2em;">
+                    <path d="M6 8l4 4 4-4" stroke="#1a741a" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                  <li>
+                    <a class="dropdown-item" href="meat.html">Meats</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="groceries.html">Groceries</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="howtouse.html" class="nav-link nav-link-animated">HOW TO BUY</a>
+              </li>
+              <li class="nav-item">
+                <a href="faq.html" class="nav-link nav-link-animated">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link nav-link-animated">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a href="news.html" class="nav-link nav-link-animated">NEWS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Logo fixed to far right -->
+        <div style="height: 56px; width: 56px; margin-right: 2rem;">
+          <img src="img/Screenshot 2025-07-12 164618.png" alt="Logo"
+            style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      .animated-header {
+        animation: fadeInDown 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link-animated,
+      .navbar-nav .nav-link,
+      .dropdown-menu a {
+        color: #1a741a !important;
+        transition: color 0.3s, background 0.3s;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .nav-link-animated::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border-radius: 2px;
+        transform: translateX(-50%);
+        background-color: #1a741a;
+      }
+
+      /* .nav-link-animated:hover {
+          color: #1a741a !important;
+          box-shadow: 0 2px 12px #00000055;
+        } */
+      .nav-link-animated:hover::after {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          gap: 1rem !important;
+        }
+      }
+
+      nav {
+        margin: 0.4rem;
+      }
+
+      .dropdown-menu a {
+        color: #1a741a !important;
+        background-color: #ffffff;
+      }
+
+      .dropdown-menu a:hover {
+        color: #ffffff !important;
+        background-color: #1a741a !important;
+      }
+
+      #mainNavbarOffcanvas {
+        max-width: 50vw !important;
+      }
+
+      @media (max-width: 768px) {
+        #mainNavbarOffcanvas {
+          max-width: 100vw !important;
+        }
+      }
+    </style>
+  </header>
+
+
+
+
+<main>
+  <!-- FAQ HERO -->
+ <section class="py-5 faq-hero position-relative overflow-hidden">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="col-md-6 mb-4">
+      <h1 class="display-5 fw-bold animate__animated animate__fadeInLeft" style="color: #1a741a;">How can we help?</h1>
+      <p class="lead animate__animated animate__fadeInLeft animate__delay-1s" style="color: #000000;">
+        We have real people available 24x7, ready to find a solution to your problem.<br>
+        Or you could see if the FAQs below answer your questions.
+      </p>
+      <a href="add-info/contact.html" class="btn btn-lg btn-dark shadow animate__animated animate__fadeInUp animate__delay-2s" style="background: #ffffff; color: #000000; border-radius: 30px; font-weight: 600; margin-top: 1rem; transition: background 0.3s;">
+        Contact Support
+      </a>
+    </div>
+    <div class="col-md-5 text-center">
+      <div class="rounded shadow-lg animate__animated animate__zoomIn" style="background: #ffffff; padding: 1rem; display: inline-block;">
+        <video src="video/5452807-uhd_3840_2160_25fps.mp4" autoplay loop muted playsinline class="video rounded" aria-label="Locker demo video" style="max-width: 340px; height: auto; object-fit: cover; border: 3px solid #000000; box-shadow: 0 8px 32px #00000055;">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative animated shapes -->
+  <div class="faq-blob faq-blob-1"></div>
+  <div class="faq-blob faq-blob-2"></div>
+
+  <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+    .btn-dark:hover {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .faq-hero {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .faq-blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+      animation: blobMove 12s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .faq-blob-1 {
+      width: 220px;
+      height: 220px;
+      background: #ffffff;
+      top: -60px;
+      left: -80px;
+      animation-delay: 0s;
+    }
+
+    .faq-blob-2 {
+      width: 180px;
+      height: 180px;
+      background: #ffffff;
+      bottom: -60px;
+      right: -60px;
+      animation-delay: 2s;
+    }
+
+    @keyframes blobMove {
+      0% { transform: scale(1) translateY(0) rotate(0deg);}
+      50% { transform: scale(1.12) translateY(20px) rotate(10deg);}
+      100% { transform: scale(0.95) translateY(-10px) rotate(-8deg);}
+    }
+
+    @media (max-width: 991px) {
+      .faq-blob-1 { width: 120px; height: 120px; top: -30px; left: -40px;}
+      .faq-blob-2 { width: 90px; height: 90px; bottom: -30px; right: -30px;}
+    }
+
+    @media (max-width: 767px) {
+      .faq-hero .container { flex-direction: column !important; }
+      .faq-blob-1, .faq-blob-2 { display: none; }
+      .col-md-6, .col-md-5 { width: 100% !important; }
+      .col-md-5 { margin-bottom: 2rem; }
+    }
+  </style>
+</section>
+
+  <br><br>
+
+ <!-- FAQ Accordion Section Styled to Match Hero -->
+<section class="py-5 faq-section" style="background: #ffffff; color: #000000;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 display-6" style="color: #000000;">Frequently Asked Questions</h2>
+
+    <div class="accordion" id="faqAccordion">
+
+      <!-- GENERAL -->
+      <h5 class="mt-4 fw-bold faq-category">GENERAL</h5>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header" id="headingGeneral1">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#general1" aria-expanded="false" aria-controls="general1">
+            What is NEEDS Delivery Service?
+          </button>
+        </h2>
+        <div id="general1" class="accordion-collapse collapse" aria-labelledby="headingGeneral1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">NEEDS Delivery Service is an online platform delivering fresh meats, vegetables, and groceries directly to your doorstep.</div>
+        </div>
+      </div>
+
+      <!-- ORDERING -->
+      <h5 class="mt-4 fw-bold faq-category">ORDERING</h5>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header" id="headingOrder1">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#order1" aria-expanded="false" aria-controls="order1">
+            How do I place an order?
+          </button>
+        </h2>
+        <div id="order1" class="accordion-collapse collapse" aria-labelledby="headingOrder1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Browse our selection of meats, vegetables, and groceries, add items to your cart, and proceed to checkout. You can order via our website or app. Else, you can connect with us through call or text through whatsapp.</div>
+        </div>
+      </div>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header" id="headingOrder2">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#order2" aria-expanded="false" aria-controls="order2">
+            Can I modify or cancel my order?
+          </button>
+        </h2>
+        <div id="order2" class="accordion-collapse collapse" aria-labelledby="headingOrder2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">You can modify or cancel your order before it is processed. Please contact support for assistance.</div>
+        </div>
+      </div>
+
+      <!-- DELIVERY -->
+      <h5 class="mt-4 fw-bold faq-category">DELIVERY</h5>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#delivery1">
+            What are your delivery hours?
+          </button>
+        </h2>
+        <div id="delivery1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">We deliver daily from 8 AM to 8 PM, including weekends and holidays.</div>
+        </div>
+      </div>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#delivery2">
+            How long does delivery take?
+          </button>
+        </h2>
+        <div id="delivery2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Delivery usually takes 1-2 hours depending on your location and order volume.</div>
+        </div>
+      </div>
+
+      <!-- PRODUCTS -->
+      <h5 class="mt-4 fw-bold faq-category">PRODUCTS</h5>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#products1">
+            What types of products do you deliver?
+          </button>
+        </h2>
+        <div id="products1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">We deliver fresh meats, vegetables, and a wide range of groceries including dairy, snacks, and beverages.</div>
+        </div>
+      </div>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#products2">
+            Are your products fresh?
+          </button>
+        </h2>
+        <div id="products2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Yes, we source our products daily from trusted suppliers to ensure freshness and quality.</div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <h5 class="mt-4 fw-bold faq-category">PAYMENT</h5>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#payment1">
+            What payment methods do you accept?
+          </button>
+        </h2>
+        <div id="payment1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">We accept credit/debit cards, online banking, and cash on delivery.</div>
+        </div>
+      </div>
+
+      <!-- COVERAGE -->
+      <h5 class="mt-4 fw-bold faq-category">COVERAGE</h5>
+      <div class="accordion-item bg-transparent border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#coverage1">
+            Where do you deliver?
+          </button>
+        </h2>
+        <div id="coverage1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">We deliver to most areas in the city. Enter your address at checkout to confirm delivery availability.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-category {
+  color: #000000;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.accordion-button {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000000;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(0, 0, 0, 0.03);
+  color: #000000;
+}
+
+.accordion-body {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 0 0 10px 10px;
+  padding: 1rem;
+}
+.accordion-item {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+
+</style>
+</section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-4 mb-4">
+          <a href="../index.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">
+            Home
+          </a>
+
+          <div class="dropdown mb-3">
+            <h4 class="fw-bold text-decoration-none text-pink d-flex align-items-center dropdown-toggle"
+              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="font-size: 1.2rem">
+              Products
+            </h4>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li>
+                <a class="dropdown-item" href="meat.html">Meats</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="groceries.html">Groceries</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex flex-column gap-2">
+          <a href="howtouse.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">How to Buy</a>
+          <a href="faq.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">FAQ</a>
+          <a href="about.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">About</a>
+          <a href="news.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">News</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <hr><br>
+        <p style="color: #ffffff; text-size-adjust: 10px">
+          &copy; <i>2025</i> <b>NEEDS</b> <i>Delivery Service</i>. All rights reserved.
+        </p>
+        <br>
+        <p class="mb-0 small">
+          <i>Revived by,</i>
+          <strong><br /><br /><a href="https://yapverse.com/"><img src="img/yap logo 2_page-0001.jpg" alt=""
+                style="height: 50px" /></a></strong>
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .text-pink {
+        color: #ffffff !important;
+        transition: color 0.3s ease;
+      }
+
+      .text-pink:hover {
+        color: #ffffff !important;
+      }
+
+      footer {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      footer ul li {
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    const depth = (currentPath.match(/\//g) || []).length - 1;
+
+    // Calculates how many levels deep we are (../ for each level)
+    const basePath = "../".repeat(depth > 0 ? depth : 0);
+
+    const navLinks = document.querySelectorAll("nav a, footer a, .dropdown-menu a");
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Fix only src-based internal links
+      if (href && href.startsWith("src/")) {
+        link.setAttribute("href", basePath + href);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

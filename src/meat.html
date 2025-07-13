@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <title>FOODS - Meats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+    body {
+        background-color:#fab327; /* baby blue */
+        color: #000000; /* vivid baby pink */
+    }
+    footer {
+        background-color: #000000; /* black */
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+    }
+    
+
+    </style>
+</head>
+<body>
+
+
+<header class="shadow-sm animated-header">
+    <nav class="navbar navbar-expand-lg px-0">
+      <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
+        <!-- Toggler (for mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavbarOffcanvas"
+          aria-controls="mainNavbarOffcanvas" aria-label="Toggle navigation"
+          onclick="document.getElementById('mainNavbarOffcanvas').style.width='50vw';">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var offcanvas = document.getElementById('mainNavbarOffcanvas');
+            offcanvas.addEventListener('show.bs.offcanvas', function () {
+              offcanvas.style.width = '50vw';
+            });
+            offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+              offcanvas.style.width = '';
+            });
+          });
+        </script>
+        <style>
+        </style>
+
+        <!-- Offcanvas Navbar (right side) -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNavbarOffcanvas"
+          aria-labelledby="mainNavbarOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mainNavbarOffcanvasLabel">Explore</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav gap-lg-3 flex-lg-row flex-column">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link nav-link-animated">HOME</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown nav-link-animated" href="#" id="productDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"
+                  style="display: flex; align-items: center; gap: 0.4em; text-decoration: none; border: none; box-shadow: none;">
+                  PRODUCT
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="margin-left: 0.2em;">
+                    <path d="M6 8l4 4 4-4" stroke="#1a741a" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                  <li>
+                    <a class="dropdown-item" href="meat.html">Meats</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="groceries.html">Groceries</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="howtouse.html" class="nav-link nav-link-animated">HOW TO BUY</a>
+              </li>
+              <li class="nav-item">
+                <a href="faq.html" class="nav-link nav-link-animated">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link nav-link-animated">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a href="news.html" class="nav-link nav-link-animated">NEWS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Logo fixed to far right -->
+        <div style="height: 56px; width: 56px; margin-right: 2rem;">
+          <img src="img/Screenshot 2025-07-12 164618.png" alt="Logo"
+            style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      .animated-header {
+        animation: fadeInDown 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link-animated,
+      .navbar-nav .nav-link,
+      .dropdown-menu a {
+        color: #1a741a !important;
+        transition: color 0.3s, background 0.3s;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .nav-link-animated::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border-radius: 2px;
+        transform: translateX(-50%);
+        background-color: #1a741a;
+      }
+
+      /* .nav-link-animated:hover {
+          color: #1a741a !important;
+          box-shadow: 0 2px 12px #00000055;
+        } */
+      .nav-link-animated:hover::after {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          gap: 1rem !important;
+        }
+      }
+
+      nav {
+        margin: 0.4rem;
+      }
+
+      .dropdown-menu a {
+        color: #1a741a !important;
+        background-color: #ffffff;
+      }
+
+      .dropdown-menu a:hover {
+        color: #ffffff !important;
+        background-color: #1a741a !important;
+      }
+
+      #mainNavbarOffcanvas {
+        max-width: 50vw !important;
+      }
+
+      @media (max-width: 768px) {
+        #mainNavbarOffcanvas {
+          max-width: 100vw !important;
+        }
+      }
+    </style>
+  </header>
+
+
+
+<main>
+
+  <!-- Hero Section -->
+  <section class="py-5 hero-section" style=" color: #1a741a;">
+  <div class="container">
+    <div class="row align-items-center flex-column-reverse flex-md-row">
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0 animate__animated animate__fadeInLeft">
+        <h1 class="fw-bold display-5 mb-3">For those who live<br>under the rock</h1>
+        <p class="lead mb-4" style="color: #000000;">Order fresh meats delivered right to your doorstep. Enjoy quality, convenience, and fast service with NEEDS Delivery Service.</p>
+        <a href="howtouse.html" class="btn btn-lg px-4 fw-bold hero-btn">How to Buy</a>
+      </div>
+      <div class="col-md-6 text-center animate__animated animate__fadeInRight">
+        <div class="video-wrapper mx-auto" style="max-width: 400px;">
+          <video src="video/meat.mp4" autoplay loop muted playsinline class="rounded shadow hero-video"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hero-section {
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section h1 {
+      text-shadow: 0 4px 24px #00000033;
+      letter-spacing: -1px;
+    }
+
+    .hero-btn {
+      background: #ffffff;
+      color: #000000 !important;
+      border: none;
+      box-shadow: 0 2px 12px #00000055;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .hero-btn:hover {
+      background: #ffffff;
+      color: #000000 !important;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 24px #00000099;
+    }
+
+    .hero-video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px #00000033;
+      transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
+    }
+
+    .hero-video:hover {
+
+      box-shadow: 0 12px 40px #00000055;
+    }
+
+    @media (max-width: 767px) {
+      .hero-section {
+        min-height: 320px;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .video-wrapper {
+        max-width: 90vw;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+
+  <!-- What is NEEDS Delivery Service -->
+  <section class="py-5 digital-cloakroom-section" style=" color: #fff;">
+  <div class="container">
+    <h2 class="fw-bold mb-4" style="color: #ffffff; text-shadow: 0 2px 12px #00000022;text-align: center;">What is NEEDS Delivery Service?</h2>
+    <p class="mb-4" style="color: #ffffff; font-size: 1.15rem;">
+      NEEDS Delivery Service brings fresh vegetables, meats, and groceries right to your doorstep. Order online and enjoy fast, safe, and convenient delivery.
+    </p>
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/order.svg" alt="Order" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Order Online</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/vegetables.svg" alt="Veggies" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Fresh Veggies</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/meat.svg" alt="Meats" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Quality Meats</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="icon-circle mb-2" style="background: #f0f0f0;">
+          <img src="img/grocery.svg" alt="Groceries" width="40">
+        </div>
+        <p class="fw-semibold" style="color: #ffffff;">Daily Groceries</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .digital-cloakroom-section {
+      background: #000000;
+      box-shadow: 0 6px 32px #00000022;
+    }
+
+    .digital-cloakroom-section .icon-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 0.5rem auto;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px #00000022;
+      border: 2px solid #000000;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .digital-cloakroom-section .icon-circle:hover {
+      box-shadow: 0 6px 24px #00000066;
+      background: #eaeaea;
+    }
+
+    @media (max-width: 767px) {
+      .digital-cloakroom-section .icon-circle {
+        width: 48px;
+        height: 48px;
+      }
+
+      .digital-cloakroom-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</section>
+
+
+  <!-- Duration Section -->
+<section class="py-5 duration-section" style="background: #fab327; color: #1a741a;">
+  <div class="container animate__animated animate__fadeInUp">
+    <h2 class="fw-bold mb-4" style=" text-shadow: 0 2px 12px #00000022;text-align: center;">Delivery Options</h2>
+    <p class="mb-4" style="font-size: 1.15rem; color: #ffffff;text-align: center;">
+      NEEDS Delivery Service offers flexible delivery slots and packages to fit your schedule and needs.
+    </p>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="duration-card p-4 rounded-4 shadow-sm h-100 bg-white animate__animated animate__fadeInLeft">
+          <h5 class="fw-bold mb-3" style="color: #000000;">Standard Delivery</h5>
+          <div class="d-flex gap-3 flex-wrap">
+            <span class="duration-badge">Same Day</span>
+            <span class="duration-badge">Next Day</span>
+            <span class="duration-badge">Scheduled</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="duration-card p-4 rounded-4 shadow-sm h-100 bg-white animate__animated animate__fadeInRight">
+          <h5 class="fw-bold mb-3" style="color: #000000;">Express Delivery</h5>
+          <div class="d-flex gap-3 flex-wrap">
+            <span class="duration-badge">Within 2 Hours</span>
+            <span class="duration-badge">Morning Slot</span>
+            <span class="duration-badge">Evening Slot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .duration-section {
+      background: #ffffff;
+      box-shadow: 0 6px 32px #00000022;
+      overflow: hidden;
+    }
+
+    .duration-card {
+      border: 2px solid #000000;
+      background: #ffffff;
+      transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
+    }
+
+    .duration-card:hover {
+      transform: scale(1.03) rotate(-2deg);
+      box-shadow: 0 8px 32px #00000055;
+      border-color: #000000;
+    }
+
+    .duration-badge {
+      background: #000000;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.05rem;
+      border-radius: 2rem;
+      padding: 0.6rem 1.5rem;
+      box-shadow: 0 2px 12px #00000022;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      cursor: pointer;
+      border: 2px solid #000000;
+      animation: popIn 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .duration-badge:hover {
+      background: #222222;
+      color: #ffffff;
+      box-shadow: 0 6px 24px #00000055;
+      border-color: #222222;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 767px) {
+      .duration-card {
+        padding: 1.2rem !important;
+      }
+      .duration-badge {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.1rem;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+  <!-- Meat Delivery Section -->
+  <section class="py-5 storage-size-section">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center" style="color: #000000; text-shadow: 0 2px 12px #00000022;">Meat Delivery Options</h2>
+    <p class="text-center mb-5" style="color: #333333; font-size: 1.15rem;">Choose the right package for your meat delivery needs.</p>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-3">
+      <div class="storage-card animate__animated animate__fadeInUp shadow-sm text-center bg-white rounded-4 p-4 h-100" style="border: 2px solid #000000;">
+        <div class="icon-circle mb-3" style="background: #eaeaea;">
+        <img src="img/fish.svg" alt="Fish" width="40">
+        </div>
+        <h5 class="fw-bold" style="color: #000000;">Fish</h5>
+        <p style="color: #555555;">Fresh fish varieties including Rohu, Catla, Pomfret, and more.</p>
+      </div>
+      </div>
+
+      <div class="col-md-3">
+      <div class="storage-card animate__animated animate__fadeInUp shadow-sm text-center bg-white rounded-4 p-4 h-100" style="border: 2px solid #000000; animation-delay: 0.1s;">
+        <div class="icon-circle mb-3" style="background: #eaeaea;">
+        <img src="img/chicken.svg" alt="Chicken" width="40">
+        </div>
+        <h5 class="fw-bold" style="color: #000000;">Chicken</h5>
+        <p style="color: #555555;">Tender chicken cuts, whole chicken, drumsticks, and boneless options.</p>
+      </div>
+      </div>
+
+      <div class="col-md-3">
+      <div class="storage-card animate__animated animate__fadeInUp shadow-sm text-center bg-white rounded-4 p-4 h-100" style="border: 2px solid #000000; animation-delay: 0.2s;">
+        <div class="icon-circle mb-3" style="background: #eaeaea;">
+        <img src="img/goat.png" alt="Mutton" width="40">
+        </div>
+        <h5 class="fw-bold" style="color: #000000;">Mutton</h5>
+        <p style="color: #555555;">Premium mutton, goat, and lamb cuts for curries and grills.</p>
+      </div>
+      </div>
+
+      <div class="col-md-3">
+      <div class="storage-card animate__animated animate__fadeInUp shadow-sm text-center bg-white rounded-4 p-4 h-100" style="border: 2px solid #000000; animation-delay: 0.3s;">
+        <div class="icon-circle mb-3" style="background: #eaeaea;">
+        <img src="img/meat.svg" alt="Beef" width="40">
+        </div>
+        <h5 class="fw-bold" style="color: #000000;">Beef</h5>
+        <p style="color: #555555;">Quality beef cuts for steaks, roasts, and traditional dishes.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .storage-size-section {
+      background: #fab327;
+      box-shadow: 0 6px 32px #00000022;
+      overflow: hidden;
+    }
+
+    .storage-card {
+      transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s, border-color 0.3s;
+      cursor: pointer;
+      border: 2px solid #000000;
+      background: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .storage-card:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 8px 32px #00000055;
+      border-color: #000000;
+      background: #f8f8f8;
+    }
+
+    .storage-card .icon-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1rem auto;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px #00000022;
+      border: 2px solid #000000;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    }
+
+    .storage-card:hover .icon-circle {
+      transform: scale(1.12) rotate(-6deg);
+      box-shadow: 0 6px 24px #00000066;
+      background: #dddddd;
+    }
+
+    @media (max-width: 767px) {
+      .storage-card {
+        padding: 1.2rem !important;
+      }
+      .storage-card .icon-circle {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+
+
+  <!-- Contact Us Section -->
+ <section class="py-5 contact-section" style="background: #000000; color: #ffffff; position: relative; overflow: hidden;">
+  <div class="container text-center position-relative z-2">
+    <h2 class="fw-bold mb-4 animate__animated animate__fadeInDown" style="color: #ffffff; text-shadow: 0 2px 12px #00000022;">
+      Need help or have questions?
+    </h2>
+    <p class="animate__animated animate__fadeInUp" style="color: #ffffff; font-size:1.15rem;">
+      We're here to assist you. Reach out to us anytime!
+    </p>
+    <a href="add-info/contact.html"
+       class="btn btn-lg btn-primary px-5 fw-bold mt-4 animate__animated animate__pulse animate__infinite"
+       style="background: #ffffff; color: #000000; border: none; box-shadow: 0 2px 12px #00000055; transition: background 0.3s, color 0.3s, transform 0.2s;">
+      Contact Us
+    </a>
+  </div>
+
+  <!-- Animated background shapes -->
+  <div class="contact-bg-shape shape-1"></div>
+  <div class="contact-bg-shape shape-2"></div>
+
+  <style>
+    .contact-section {
+      box-shadow: 0 6px 32px #00000033;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background: #9bbeff !important;
+      color: #000000 !important;
+      box-shadow: 0 4px 24px #00000055;
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .contact-bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 5;
+      z-index: 1;
+      pointer-events: none;
+      animation-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .shape-1 {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 30% 30%, #747474 60%, #333333 100%);
+      top: -60px;
+      left: -60px;
+      animation: floatShape1 6s ease-in-out infinite alternate;
+    }
+
+    .shape-2 {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 70% 70%, #747474 60%, #333333 100%);
+      bottom: -40px;
+      right: -40px;
+      animation: floatShape2 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatShape1 {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(30px) scale(1.08);}
+    }
+
+    @keyframes floatShape2 {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-20px) scale(1.12);}
+    }
+
+    @media (max-width: 767px) {
+      .shape-1 { width: 100px; height: 100px; top: -30px; left: -30px;}
+      .shape-2 { width: 70px; height: 70px; bottom: -20px; right: -20px;}
+      .contact-section { padding: 2rem 0.5rem !important; }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+  <!-- FAQ Promo Section -->
+<section class="py-5 faq-promo-section animate__animated animate__fadeInUp" style="background: #fab327; color: #000000; box-shadow: 0 6px 32px #00000033; overflow: hidden; position: relative;">
+  <!-- Decorative animated shapes -->
+  <!-- <div class="faq-bg-shape shape-1"></div>
+  <div class="faq-bg-shape shape-2"></div> -->
+  <div class="container position-relative z-2">
+    <h2 class="fw-bold mb-3 animate__animated animate__fadeInDown" style="color: #000000; text-shadow: 0 2px 12px #00000022; text-align: center;">Frequently Asked Questions</h2>
+    <div class="d-flex flex-column gap-2 align-items-center">
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.1s;">How do I order from NEEDS Delivery Service?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.2s;">What are your delivery charges?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.3s;">How do I track my order?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.4s;">What payment methods do you accept?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.5s;">Can I change my delivery slot?</a>
+      <a href="faq.html" class="faq-link animate__animated animate__fadeInLeft" style="animation-delay:0.6s;">What if my order is delayed?</a>
+    </div>
+    <div class="text-center mt-4">
+      <a href="faq.html" class="btn btn-lg btn-gradient-neutral px-4 fw-bold animate__animated animate__pulse animate__infinite" style="text-align: center;">Get More Help</a>
+    </div>
+  </div>
+
+  <style>
+    .faq-link {
+      color: #000000;
+      background: #f4f4f4;
+      border-radius: 2rem;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      font-size: 1.08rem;
+      box-shadow: 0 2px 12px #00000022;
+      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 0.2rem;
+      text-shadow: none;
+      display: inline-block;
+      border: 2px solid #00000022;
+      animation-duration: 0.8s;
+    }
+
+    .faq-link:hover, .faq-link:focus {
+      background: #000000;
+      color: #ffffff !important;
+      transform: scale(1.06) translateX(6px);
+      box-shadow: 0 6px 24px #00000055;
+      border-color: #000000;
+      text-decoration: none;
+    }
+
+    .btn-gradient-neutral {
+      background: #000000;
+      color: #ffffff !important;
+      border: none;
+      box-shadow: 0 2px 12px #00000055;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .btn-gradient-neutral:hover, .btn-gradient-neutral:focus {
+      background: #222222;
+      color: #ffffff !important;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 24px #00000088;
+    }
+
+    .faq-bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 5;
+      z-index: 1;
+      pointer-events: none;
+      animation-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .faq-bg-shape.shape-1 {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 30% 30%, #1a741a 60%, #333333 100%);
+      top: -40px;
+      left: -40px;
+      animation: floatFaqShape1 7s ease-in-out infinite alternate;
+    }
+
+    .faq-bg-shape.shape-2 {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 70% 70%, #1a741a 60%, #333333 100%);
+      bottom: -30px;
+      right: -30px;
+      animation: floatFaqShape2 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatFaqShape1 {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(24px) scale(1.08);}
+    }
+
+    @keyframes floatFaqShape2 {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-18px) scale(1.12);}
+    }
+
+    @media (max-width: 767px) {
+      .faq-promo-section { padding: 2rem 0.5rem !important; }
+      .faq-bg-shape.shape-1 { width: 60px; height: 60px; top: -20px; left: -20px;}
+      .faq-bg-shape.shape-2 { width: 40px; height: 40px; bottom: -10px; right: -10px;}
+      .faq-link { font-size: 0.98rem; padding: 0.5rem 1.2rem;}
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-4 mb-4">
+          <a href="../index.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">
+            Home
+          </a>
+
+          <div class="dropdown mb-3">
+            <h4 class="fw-bold text-decoration-none text-pink d-flex align-items-center dropdown-toggle"
+              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="font-size: 1.2rem">
+              Products
+            </h4>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li>
+                <a class="dropdown-item" href="meat.html">Meats</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="groceries.html">Groceries</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex flex-column gap-2">
+          <a href="howtouse.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">How to Buy</a>
+          <a href="faq.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">FAQ</a>
+          <a href="about.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">About</a>
+          <a href="news.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">News</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <hr><br>
+        <p style="color: #ffffff; text-size-adjust: 10px">
+          &copy; <i>2025</i> <b>NEEDS</b> <i>Delivery Service</i>. All rights reserved.
+        </p>
+        <br>
+        <p class="mb-0 small">
+          <i>Revived by,</i>
+          <strong><br /><br /><a href="https://yapverse.com/"><img src="img/yap logo 2_page-0001.jpg" alt=""
+                style="height: 50px" /></a></strong>
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .text-pink {
+        color: #ffffff !important;
+        transition: color 0.3s ease;
+      }
+
+      .text-pink:hover {
+        color: #ffffff !important;
+      }
+
+      footer {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      footer ul li {
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    const depth = (currentPath.match(/\//g) || []).length - 1;
+
+    // Calculates how many levels deep we are (../ for each level)
+    const basePath = "../".repeat(depth > 0 ? depth : 0);
+
+    const navLinks = document.querySelectorAll("nav a, footer a, .dropdown-menu a");
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Fix only src-based internal links
+      if (href && href.startsWith("src/")) {
+        link.setAttribute("href", basePath + href);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

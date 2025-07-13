@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 3rem 2.5rem 2.5rem 2.5rem;
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      max-width: 350px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
+    p {
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0;
+    }
+    .loader {
+      margin: 2rem auto;
+      border: 8px solid rgba(255,255,255,0.15);
+      border-top: 8px solid #ffffff;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+    .notify-btn {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 24px;
+      background: #ffffff;
+      color: #000000;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+      transition: background 0.2s;
+    }
+    .notify-btn:hover {
+      background: #e0e0e0;
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 2rem 1rem 1.5rem 1rem;
+        max-width: 95vw;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Coming Soon</h1>
+    <div class="subtitle">Exciting things are on the way!</div>
+    <div class="loader"></div>
+    <p>We're working hard to launch this page.<br>Stay tuned!</p>
+    <button class="notify-btn" onclick="alert('Thank you! We will notify you when we launch.')">Notify Me</button>
+  </div>
+</body>
+</html>

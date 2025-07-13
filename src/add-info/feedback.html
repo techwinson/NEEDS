@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {
+    --primary: #ffffff; /* Text color */
+    --secondary: #000000; /* Background */
+    --gray-dark: #222222;
+    --gray-light: #444444;
+    --shadow: 0 4px 24px rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #fab327;
+    color: var(--primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    animation: bgFadeIn 1.2s;
+  }
+
+  @keyframes bgFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .container {
+    max-width: 400px;
+    margin: 48px auto;
+    background: var(--gray-dark);
+    padding: 36px 28px;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    animation: popIn 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  h2 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--primary);
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 2em;
+    animation: fadeInDown 0.7s;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+
+  label {
+    display: block;
+    margin: 18px 0 7px 0;
+    color: #cccccc;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #666666;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #111111;
+    color: #ffffff;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px #444444;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  button {
+    margin-top: 22px;
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(90deg, #ffffff 60%, #aaaaaa 100%);
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 1s;
+  }
+
+  button:hover, button:focus {
+    background: linear-gradient(90deg, #e6e6e6 80%, #ffffff 100%);
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+
+  form {
+    animation: fadeIn 1.2s;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+
+  .hearts {
+    display: none; /* Hidden in black/white theme */
+  }
+
+  @media (max-width: 500px) {
+    .container {
+      padding: 22px 6vw;
+      border-radius: 12px;
+    }
+    h2 { font-size: 1.4em; }
+  }
+
+  .go-home-btn {
+    display: block;
+    width: 100%;
+    margin: 32px auto 0 auto;
+    padding: 13px;
+    background: linear-gradient(90deg, #ffffff 60%, #cccccc 100%);
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.07);
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    animation: fadeInUp 1.2s;
+  }
+
+  .go-home-btn:hover, .go-home-btn:focus {
+    background: linear-gradient(90deg, #e6e6e6 80%, #ffffff 100%);
+    color: #111111;
+    transform: translateY(-2px) scale(1.03);
+  }
+</style>
+
+
+</head>
+<body>
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+    <div class="container">
+        <h2>Feedback</h2>
+        <form autocomplete="off">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+
+            <label for="mobile">Mobile Number (optional)</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="e.g. 123-456-7890" pattern="[0-9\-+\s()]{7,20}">
+
+            <label for="message">Feedback</label>
+            <textarea id="message" name="message" required placeholder="Your feedback"></textarea>
+
+            <button type="submit">Send Feedback</button>
+            <!-- Status message will be injected by JS -->
+        </form>
+    </div>
+    <a href="../../index.html" class="go-home-btn">Go to Home Page</a>
+    <script src="feedback.js"></script>
+</body>
+</html>

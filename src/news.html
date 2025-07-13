@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <title>News</title>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+    body {
+        background-color:#fab327; /* baby blue */
+        color: #000000; /* vivid baby pink */
+    }
+    footer {
+        background-color: #000000; /* black */
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+    }
+    
+
+    </style>
+</head>
+<body>
+ <header class="shadow-sm animated-header">
+    <nav class="navbar navbar-expand-lg px-0">
+      <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
+        <!-- Toggler (for mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavbarOffcanvas"
+          aria-controls="mainNavbarOffcanvas" aria-label="Toggle navigation"
+          onclick="document.getElementById('mainNavbarOffcanvas').style.width='50vw';">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var offcanvas = document.getElementById('mainNavbarOffcanvas');
+            offcanvas.addEventListener('show.bs.offcanvas', function () {
+              offcanvas.style.width = '50vw';
+            });
+            offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+              offcanvas.style.width = '';
+            });
+          });
+        </script>
+        <style>
+        </style>
+
+        <!-- Offcanvas Navbar (right side) -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNavbarOffcanvas"
+          aria-labelledby="mainNavbarOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mainNavbarOffcanvasLabel">Explore</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav gap-lg-3 flex-lg-row flex-column">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link nav-link-animated">HOME</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown nav-link-animated" href="#" id="productDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"
+                  style="display: flex; align-items: center; gap: 0.4em; text-decoration: none; border: none; box-shadow: none;">
+                  PRODUCT
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="margin-left: 0.2em;">
+                    <path d="M6 8l4 4 4-4" stroke="#1a741a" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                  <li>
+                    <a class="dropdown-item" href="meat.html">Meats</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="groceries.html">Groceries</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="howtouse.html" class="nav-link nav-link-animated">HOW TO BUY</a>
+              </li>
+              <li class="nav-item">
+                <a href="faq.html" class="nav-link nav-link-animated">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link nav-link-animated">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a href="news.html" class="nav-link nav-link-animated">NEWS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Logo fixed to far right -->
+        <div style="height: 56px; width: 56px; margin-right: 2rem;">
+          <img src="img/Screenshot 2025-07-12 164618.png" alt="Logo"
+            style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      .animated-header {
+        animation: fadeInDown 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link-animated,
+      .navbar-nav .nav-link,
+      .dropdown-menu a {
+        color: #1a741a !important;
+        transition: color 0.3s, background 0.3s;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .nav-link-animated::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border-radius: 2px;
+        transform: translateX(-50%);
+        background-color: #1a741a;
+      }
+
+      /* .nav-link-animated:hover {
+          color: #1a741a !important;
+          box-shadow: 0 2px 12px #00000055;
+        } */
+      .nav-link-animated:hover::after {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          gap: 1rem !important;
+        }
+      }
+
+      nav {
+        margin: 0.4rem;
+      }
+
+      .dropdown-menu a {
+        color: #1a741a !important;
+        background-color: #ffffff;
+      }
+
+      .dropdown-menu a:hover {
+        color: #ffffff !important;
+        background-color: #1a741a !important;
+      }
+
+      #mainNavbarOffcanvas {
+        max-width: 50vw !important;
+      }
+
+      @media (max-width: 768px) {
+        #mainNavbarOffcanvas {
+          max-width: 100vw !important;
+        }
+      }
+    </style>
+  </header>
+
+
+<main>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4 fade-in"
+    style="font-size:2.7rem; font-weight:800; letter-spacing:-1px; color: #000000;">
+    Latest News!
+</h1>
+
+
+    <div class="news-list">
+      <div class="card h-100 news-card shadow news-animate">
+        <img src="img/commingsoon.png" class="card-img-top news-img" alt="News Image 1" style="width:100%; height:220px; object-fit:cover; object-position:center;">
+        <div class="card-body">
+          <h5 class="card-title">Exciting New Features Coming Soon!</h5>
+          <p class="card-text">
+            Stay tuned for our upcoming features that will enhance your experience with <b style="font-family: 'Times New Roman', Times, serif;">NEEDS</b> <i style="font-family: 'Times New Roman', Times, serif;">delivery service</i>. We are committed to making your cooking ingredients usage more convenient and efficient.
+          </p>
+          <a href="add-info/loading.html" class="btn btn-primary btn-animated">Read More</a>
+        </div>
+      </div>
+
+      <div class="card h-100 news-card shadow news-animate">
+        <img src="img/newlocation.jpg" class="card-img-top news-img" alt="News Image 2" style="width:100%; height:220px; object-fit:cover; object-position:center;">
+        <div class="card-body">
+          <h5 class="card-title"><b style="font-family: 'Times New Roman', Times, serif;">NEEDS</b> <i style="font-family: 'Times New Roman', Times, serif;">delivery service</i> Expands to New Locations</h5>
+          <p class="card-text">
+            We are thrilled to announce that our delivery services are now available in more cities! Check out our website to find a whats near you and enjoy the convenience of cooking at ease mind.
+          </p>
+          <a href="add-info/loading.html" class="btn btn-primary btn-animated">Read More</a>
+        </div>
+      </div>
+
+      <div class="card h-100 news-card shadow news-animate">
+        <img src="img/feedback.jpg" class="card-img-top news-img" alt="News Image 3" style="width:100%; height:220px; object-fit:cover; object-position:center;">
+        <div class="card-body">
+          <h5 class="card-title">User Feedback: We Want to Hear From You!</h5>
+          <p class="card-text">
+            Your feedback is invaluable to us! Share your thoughts and suggestions on how we can improve <b style="font-family: 'Times New Roman', Times, serif;">NEEDS</b> <i style="font-family: 'Times New Roman', Times, serif;">delivery service</i>. Together, we can make your cooking experience even better.
+          </p>
+          <a href="add-info/feedback.html" class="btn btn-primary btn-animated">Share Feedback</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+/* Layout wrapper for vertical stacking */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Title animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeInTitle 1s 0.2s forwards;
+}
+@keyframes fadeInTitle {
+  to { opacity: 1; }
+}
+
+/* Card appearance */
+.news-card {
+    background: #ffffff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+.news-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Image style */
+.news-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: filter 0.3s;
+  filter: brightness(0.97) saturate(1.1);
+}
+
+@media (max-width: 767px) {
+  .news-img {
+    height: 140px;
+  }
+}
+
+
+.news-card:hover .news-img {
+  filter: brightness(1.05) saturate(1.2) blur(1px);
+}
+
+/* Button style */
+.btn-animated {
+    background: #000000;
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.btn-animated:hover {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Entry animation */
+.news-animate {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: newsFadeIn 0.9s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+@keyframes newsFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .news-img { height: 140px; }
+  .news-card { margin-bottom: 1.5rem; }
+}
+    </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.news-animate').forEach((el, i) => {
+      el.style.animationDelay = (0.1 + i * 0.2) + "s";
+    });
+  });
+</script>
+
+</main>
+<br><br>
+
+
+<footer>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-4 mb-4">
+          <a href="../index.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">
+            Home
+          </a>
+
+          <div class="dropdown mb-3">
+            <h4 class="fw-bold text-decoration-none text-pink d-flex align-items-center dropdown-toggle"
+              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="font-size: 1.2rem">
+              Products
+            </h4>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li>
+                <a class="dropdown-item" href="meat.html">Meats</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="groceries.html">Groceries</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex flex-column gap-2">
+          <a href="howtouse.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">How to Buy</a>
+          <a href="faq.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">FAQ</a>
+          <a href="about.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">About</a>
+          <a href="news.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">News</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <hr><br>
+        <p style="color: #ffffff; text-size-adjust: 10px">
+          &copy; <i>2025</i> <b>NEEDS</b> <i>Delivery Service</i>. All rights reserved.
+        </p>
+        <br>
+        <p class="mb-0 small">
+          <i>Revived by,</i>
+          <strong><br /><br /><a href="https://yapverse.com/"><img src="img/yap logo 2_page-0001.jpg" alt=""
+                style="height: 50px" /></a></strong>
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .text-pink {
+        color: #ffffff !important;
+        transition: color 0.3s ease;
+      }
+
+      .text-pink:hover {
+        color: #ffffff !important;
+      }
+
+      footer {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      footer ul li {
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    const depth = (currentPath.match(/\//g) || []).length - 1;
+
+    // Calculates how many levels deep we are (../ for each level)
+    const basePath = "../".repeat(depth > 0 ? depth : 0);
+
+    const navLinks = document.querySelectorAll("nav a, footer a, .dropdown-menu a");
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Fix only src-based internal links
+      if (href && href.startsWith("src/")) {
+        link.setAttribute("href", basePath + href);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

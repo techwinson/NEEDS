@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - FOODS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family:'Times New Roman', Times, serif;
+        background: #fab327;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        animation: bgFade 2s ease-in;
+    }
+    .contact-container {
+        max-width: 600px;
+        margin: 3em auto;
+        padding: 2.5em;
+        background: #111111;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(255, 255, 255, 0.08);
+        border: 2px solid #444;
+        animation: popIn 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes popIn {
+        0% { transform: scale(0.8) translateY(40px); opacity: 0; }
+        100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .contact-container h2 {
+        text-align: center;
+        margin-bottom: 1.5em;
+        color: #ffffff;
+        letter-spacing: 1px;
+        font-weight: 700;
+        animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    .contact-label {
+        display: block;
+        margin-bottom: 1.5em;
+        animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0;}
+        to { opacity: 1;}
+    }
+    .contact-label span {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: 500;
+        color: #dddddd;
+    }
+    .contact-input,
+    .contact-textarea {
+        width: 100%;
+        padding: 1em;
+        border: 1.5px solid #444;
+        border-radius: 8px;
+        font-size: 1.15em;
+        box-sizing: border-box;
+        background: #222;
+        color: #fff;
+        transition: border 0.3s, box-shadow 0.3s;
+    }
+    .contact-input:focus,
+    .contact-textarea:focus {
+        border-color: #ffffff;
+        box-shadow: 0 0 0 2px #333;
+        outline: none;
+    }
+    .contact-textarea {
+        resize: vertical;
+    }
+    .contact-button {
+        width: 100%;
+        padding: 1em;
+        background: #ffffff;
+        color: #000000;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2em;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        transition: background 0.2s, transform 0.2s;
+        margin-top: 0.5em;
+        letter-spacing: 1px;
+    }
+    .contact-button:hover {
+        background: #dddddd;
+        transform: translateY(-2px) scale(1.03);
+    }
+  .go-home-btn {
+    display: block;
+    width: 100%;
+    margin: 32px auto 0 auto;
+    padding: 13px;
+    background: linear-gradient(90deg, #ffffff 60%, #cccccc 100%);
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.07);
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    animation: fadeInUp 1.2s;
+  }
+
+  .go-home-btn:hover, .go-home-btn:focus {
+    background: linear-gradient(90deg, #e6e6e6 80%, #ffffff 100%);
+    color: #111111;
+    transform: translateY(-2px) scale(1.03);
+  }
+</style>
+
+</head>
+<body>
+    <form class="contact-container" autocomplete="on">
+        <h2>Contact Us</h2>
+        <label class="contact-label">
+            <span>Your Name:</span>
+            <input class="contact-input" type="text" name="name" required autocomplete="name" placeholder="Your Name">
+        </label>
+        <label class="contact-label">
+            <span>Your Email:</span>
+            <input class="contact-input" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </label>
+        <label class="contact-label">
+            <span>Mobile Number:</span>
+            <input class="contact-input" type="tel" name="mobile" required autocomplete="tel" placeholder="e.g. 9876543210" pattern="[0-9]{10,15}">
+        </label>
+        <label class="contact-label">
+            <span>Reason:</span>
+            <input class="contact-input" type="text" name="reason" required placeholder="Contacting for partnership or other reasons" autocomplete="off">
+        </label>
+        <label class="contact-label">
+            <span>Queries:</span>
+            <textarea class="contact-textarea" name="queries" required rows="7" placeholder="Type your queries here..."></textarea>
+        </label>
+        <button class="contact-button" type="submit">Send</button>
+        <!-- Status message will be injected by JS -->
+    </form>
+    <script src="contact.js"></script>
+    <a href="../../index.html" class="go-home-btn">Go to Home Page</a>
+</body>
+</html>
