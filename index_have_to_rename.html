@@ -1,0 +1,764 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="src/img/logo.png" />
+  <title>FOODS - Delivery Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #fab327;
+      color: #000000;
+    }
+
+
+
+    footer {
+      background-color: #000000;
+      padding: 2rem;
+      color:#ffffff;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="shadow-sm animated-header">
+    <nav class="navbar navbar-expand-lg px-0">
+      <div class="container-fluid px-0 d-flex align-items-center justify-content-between">
+        <!-- Toggler (for mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavbarOffcanvas"
+          aria-controls="mainNavbarOffcanvas" aria-label="Toggle navigation"
+          onclick="document.getElementById('mainNavbarOffcanvas').style.width='50vw';">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var offcanvas = document.getElementById('mainNavbarOffcanvas');
+            offcanvas.addEventListener('show.bs.offcanvas', function () {
+              offcanvas.style.width = '50vw';
+            });
+            offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+              offcanvas.style.width = '';
+            });
+          });
+        </script>
+        <style>
+        </style>
+
+        <!-- Offcanvas Navbar (right side) -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNavbarOffcanvas"
+          aria-labelledby="mainNavbarOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mainNavbarOffcanvasLabel">Explore</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav gap-lg-3 flex-lg-row flex-column">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link nav-link-animated">HOME</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown nav-link-animated" href="#" id="productDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"
+                  style="display: flex; align-items: center; gap: 0.4em; text-decoration: none; border: none; box-shadow: none;">
+                  PRODUCT
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="margin-left: 0.2em;">
+                    <path d="M6 8l4 4 4-4" stroke="#1a741a" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                  <li>
+                    <a class="dropdown-item" href="src/meat.html">Meats</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="src/vegetable.html">Vegetables</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="src/groceries.html">Groceries</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="src/howtouse.html" class="nav-link nav-link-animated">HOW TO BUY</a>
+              </li>
+              <li class="nav-item">
+                <a href="src/faq.html" class="nav-link nav-link-animated">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a href="src/about.html" class="nav-link nav-link-animated">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a href="src/news.html" class="nav-link nav-link-animated">NEWS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Logo fixed to far right -->
+        <div style="height: 56px; width: 56px; margin-right: 2rem;">
+          <img src="src/img/Screenshot 2025-07-12 164618.png" alt="Logo"
+            style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      .animated-header {
+        animation: fadeInDown 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link-animated,
+      .navbar-nav .nav-link,
+      .dropdown-menu a {
+        color: #1a741a !important;
+        transition: color 0.3s, background 0.3s;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .nav-link-animated::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border-radius: 2px;
+        transform: translateX(-50%);
+        background-color: #1a741a;
+      }
+
+      /* .nav-link-animated:hover {
+          color: #1a741a !important;
+          box-shadow: 0 2px 12px #00000055;
+        } */
+      .nav-link-animated:hover::after {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          gap: 1rem !important;
+        }
+      }
+
+      nav {
+        margin: 0.4rem;
+      }
+
+      .dropdown-menu a {
+        color: #1a741a !important;
+        background-color: #ffffff;
+      }
+
+      .dropdown-menu a:hover {
+        color: #ffffff !important;
+        background-color: #1a741a !important;
+      }
+
+      #mainNavbarOffcanvas {
+        max-width: 50vw !important;
+      }
+
+      @media (max-width: 768px) {
+        #mainNavbarOffcanvas {
+          max-width: 100vw !important;
+        }
+      }
+    </style>
+  </header>
+
+  <main>
+    <section class="container d-flex flex-wrap justify-content-between align-items-center py-5">
+      <div class="col-12 col-md-5 mb-4 text-center text-md-start">
+        <h1 class="fw-bold display-4 animate__animated animate__fadeInLeft" style="color: #000000">
+          NEEDS<br />
+          <span class="highlight"></span>
+          <style>
+        .highlight {
+          font-size: 2.2rem;
+          font-weight: 600;
+          color: #1a741a;
+          display: inline-block;
+          min-width: 160px;
+          transition: opacity 0.5s, transform 0.5s;
+          opacity: 1;
+          transform: scale(1);
+        }
+          </style>
+          <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const words = [
+            "Connected",
+            "Reimagined",
+            "Fresh",
+            "Hygienic",
+            "Time-Saving",
+            "Convenient",
+            "Anywhere",
+            "Smart-Picked"
+          ];
+          const highlight = document.querySelector(".highlight");
+          let idx = 0;
+          function showWord(i) {
+            highlight.style.opacity = 0;
+            highlight.style.transform = "scale(0.95)";
+            setTimeout(() => {
+          highlight.textContent = words[i];
+          highlight.style.opacity = 1;
+          highlight.style.transform = "scale(1)";
+            }, 350);
+          }
+          showWord(idx);
+          setInterval(() => {
+            idx = (idx + 1) % words.length;
+            showWord(idx);
+          }, 1800);
+        });
+          </script>
+        </h1>
+         
+
+       
+        <p class="lead mt-3 animate__animated animate__fadeInLeft animate__delay-1s"
+          style="color: rgba(6, 41, 154, 0.6)">
+            Get fresh ingredients delivered to your home- meats, vegetables, groceries, and more. Convenient, safe, and always ready for you.
+        </p>
+      </div>
+
+      <div class="col-12 col-md-6 d-flex flex-wrap gap-3 justify-content-center">
+        <div class="position-relative rounded-4 overflow-hidden shadow-lg main-card animate__animated animate__zoomIn"
+          style="width: 100%; max-width: 500px; height: 280px">
+          <img src="src/img/htu.webp" class="w-100 h-100 object-fit-cover scale-on-hover" alt="Locker Main" />
+          <a href="src/howtouse.html"
+            class="btn btn-lg btn-light fw-bold rounded-pill position-absolute bottom-0 start-0 m-3 px-4 py-2 animate__animated animate__fadeInUp animate__delay-1s"
+            style="
+                background: rgba(255, 255, 255, 0.15);
+                color: #000000;
+                border: 2px solid #000000;
+                backdrop-filter: blur(5px);
+                text-shadow: 0 2px 8px #fff8;
+              ">
+            HOW TO BUY
+          </a>
+        </div>
+        <div class="d-flex gap-3 w-100 flex-wrap">
+          <div
+            class="position-relative rounded-4 overflow-hidden flex-fill shadow card-hover animate__animated animate__fadeInUp animate__delay-2s"
+            style="min-width: 220px; height: 180px">
+            <img src="src/img/faq.png" class="w-100 h-100 object-fit-cover scale-on-hover" alt="Learn More" />
+            <a href="src/faq.html"
+              class="btn btn-light fw-bold rounded-pill position-absolute bottom-0 start-0 m-3 px-4 py-2" style="
+                  background: rgba(255, 255, 255, 0.15);
+                  color: #000000;
+                  border: 2px solid #000000;
+                  backdrop-filter: blur(5px);
+                  text-shadow: 0 2px 8px #fff8;
+                ">
+              LEARN MORE
+            </a>
+          </div>
+          <div
+            class="position-relative rounded-4 overflow-hidden flex-fill shadow card-hover animate__animated animate__fadeInUp animate__delay-3s"
+            style="min-width: 220px; height: 180px">
+            <img src="src/img/about.avif" class="w-100 h-100 object-fit-cover scale-on-hover" alt="About Us" />
+            <a href="src/about.html"
+              class="btn btn-light fw-bold rounded-pill position-absolute bottom-0 start-0 m-3 px-4 py-2" style="
+                  background: rgba(255, 255, 255, 0.15);
+                  color: #000000;
+                  border: 2px solid #000000;
+                  backdrop-filter: blur(5px);
+                  text-shadow: 0 2px 8px #fff8;
+                ">
+              ABOUT US
+            </a>
+          </div>
+        </div>
+      </div>
+      <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+        .main-card,
+        .card-hover {
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.4s;
+        }
+
+        .main-card:hover,
+        .card-hover:hover {
+          box-shadow: 0 8px 32px 0 #00000055, 0 2px 8px #b3e0ff55;
+          z-index: 2;
+        }
+
+        .scale-on-hover {
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-card:hover .scale-on-hover,
+        .card-hover:hover .scale-on-hover {
+          transform: scale(1.08) rotate(1deg);
+          filter: brightness(1.08) saturate(1.1);
+        }
+
+        .btn-light {
+          transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+
+        .btn-light:hover {
+          background: #ffffff !important;
+          color: #000000 !important;
+          border-color: #000000 !important;
+          box-shadow: 0 2px 12px #00000055;
+        }
+      </style>
+
+      <!-- Floating Buttons -->
+      <div class="floating-buttons position-fixed top-50 end-0 translate-middle-y d-flex flex-column gap-3 me-3 z-3">
+        <a href="https://wa.me/+919842575012" target="_blank"
+          class="float-btn animate__animated animate__bounceInRight">
+          <img src="src/img/whatsapp.png" alt="WhatsApp"
+            style="height: 56px; width: 56px; transition: transform 0.3s" />
+        </a>
+
+        <br />
+
+        <a href="tel:+919842575012" class="float-btn animate__animated animate__bounceInRight animate__delay-1s">
+          <img src="src/img/phone-call.png" alt="Call" style="height: 50px; width: 50px; transition: transform 0.3s" />
+        </a>
+      </div>
+
+      <style>
+        .float-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          background: transparent;
+          padding: 0;
+          box-shadow: none;
+        }
+
+        .floating-buttons .float-btn:hover img {
+          transform: scale(1.13) rotate(-6deg);
+          z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+          .floating-buttons {
+            top: auto !important;
+            bottom: 30px !important;
+            right: 16px !important;
+            left: auto !important;
+            transform: none !important;
+            flex-direction: row !important;
+            gap: 1rem !important;
+          }
+        }
+      </style>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+      <script>
+        document
+          .getElementById("scrollTopBtn")
+          .addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+      </script>
+    </section>
+
+    <div class="marquee-container py-2 mb-4">
+      <div class="marquee-text d-flex align-items-center">
+        <span>
+          FRESH MEATS &nbsp; • &nbsp; VEGETABLES &nbsp; • &nbsp; GROCERIES &nbsp; • &nbsp; HOME DELIVERY &nbsp; • &nbsp; HYGIENIC PACKAGING &nbsp; • &nbsp; CONVENIENT ORDERING &nbsp; • &nbsp; SMART PICKUP
+        </span>
+        <span aria-hidden="true">
+          &nbsp; • &nbsp; FRESH MEATS &nbsp; • &nbsp; VEGETABLES &nbsp; • &nbsp; GROCERIES &nbsp; • &nbsp; HOME DELIVERY &nbsp; • &nbsp; HYGIENIC PACKAGING &nbsp; • &nbsp; CONVENIENT ORDERING &nbsp; • &nbsp; SMART PICKUP
+        </span>
+      </div>
+      <style>
+        .marquee-container {
+          background: linear-gradient(90deg, #ffffff 0%, #b3e0ff 100%);
+          overflow: hidden;
+          border-radius: 1.5rem;
+          box-shadow: 0 2px 12px #00000022;
+          position: relative;
+        }
+
+        .marquee-text {
+          white-space: nowrap;
+          display: flex;
+          font-weight: 700;
+          font-size: 1.1rem;
+          color: #000000;
+          letter-spacing: 1px;
+          animation: marquee-scroll 22s linear infinite;
+        }
+
+        .marquee-text span {
+          display: inline-block;
+          padding-right: 2rem;
+        }
+
+        @keyframes marquee-scroll {
+          0% {
+            transform: translateX(0);
+          }
+
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .marquee-text {
+            font-size: 0.95rem;
+            animation-duration: 14s;
+          }
+
+          .marquee-container {
+            border-radius: 1rem;
+          }
+        }
+      </style>
+    </div>
+
+    <section>
+      <div class="container my-5">
+        <div class="row justify-content-center g-4">
+          <div class="col-12 col-md-4 d-flex flex-column align-items-center">
+            <div class="position-relative w-100 animate__animated animate__fadeInUp"
+              style="max-width: 320px; animation-delay: 0.2s">
+              <img src="src/img/customer.webp" alt="Locker 1" class="img-fluid rounded-4 shadow card-img-zoom"
+                style="width: 100%; height: 220px; object-fit: cover" />
+              <a href="src/faq.html"
+                class="btn btn-pink position-absolute bottom-0 start-50 translate-middle-x mb-3 px-4 py-2 fw-bold rounded-pill shadow animate__animated animate__pulse animate__delay-1s"
+                style="
+                    background: #000000;
+                    color: #ffffff;
+                    border: none;
+                    transition: background 0.2s, color 0.2s;
+                  ">FAQ</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 d-flex flex-column align-items-center">
+            <div class="position-relative w-100 animate__animated animate__fadeInUp"
+              style="max-width: 320px; animation-delay: 0.4s">
+              <img src="src/img/cities.jpg" alt="Locker 2" class="img-fluid rounded-4 shadow card-img-zoom"
+                style="width: 100%; height: 220px; object-fit: cover" />
+              <a href="src/about.html"
+                class="btn btn-pink position-absolute bottom-0 start-50 translate-middle-x mb-3 px-4 py-2 fw-bold rounded-pill shadow animate__animated animate__pulse animate__delay-2s"
+                style="
+                    background: #000000;
+                    color: #ffffff;
+                    border: none;
+                    transition: background 0.2s, color 0.2s;
+                  ">About</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 d-flex flex-column align-items-center">
+            <div class="position-relative w-100 animate__animated animate__fadeInUp"
+              style="max-width: 320px; animation-delay: 0.6s">
+              <img src="src/img/contactus.jpg" alt="Locker 3" class="img-fluid rounded-4 shadow card-img-zoom"
+                style="width: 100%; height: 220px; object-fit: cover" />
+              <a href="src/add-info/contact.html"
+                class="btn btn-pink position-absolute bottom-0 start-50 translate-middle-x mb-3 px-4 py-2 fw-bold rounded-pill shadow animate__animated animate__pulse animate__delay-3s"
+                style="
+                    background: #000000;
+                    color: #ffffff;
+                    border: none;
+                    transition: background 0.2s, color 0.2s;
+                  ">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .card-img-zoom {
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.4s;
+        }
+
+        .position-relative:hover .card-img-zoom {
+          transform: scale(1.07) rotate(-2deg);
+          box-shadow: 0 8px 32px 0 #00000055, 0 2px 8px #b3e0ff55;
+          z-index: 2;
+        }
+
+        .btn-pink {
+          background: #000000;
+          color: #ffffff;
+          border: none;
+          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-pink:hover,
+        .btn-pink:focus {
+          background: #ffffff !important;
+          color: #000000 !important;
+          box-shadow: 0 4px 16px #00000088;
+          transform: scale(1.08) rotate(2deg);
+        }
+
+        @media (max-width: 768px) {
+          .card-img-zoom {
+            height: 160px !important;
+          }
+        }
+      </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <script>
+        // Animate.css delay for each card
+        document.addEventListener("DOMContentLoaded", () => {
+          document
+            .querySelectorAll(".row > div > .position-relative")
+            .forEach((el, i) => {
+              el.style.setProperty("animation-delay", 0.2 + i * 0.2 + "s");
+            });
+        });
+      </script>
+    </section>
+
+    <section>
+      <div class="container my-5">
+        <h2 class="fw-bold text-center mb-4" style="color: #000000">
+          What Our Customers Say
+        </h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-md-4">
+            <div class="card shadow rounded-4 h-100 border-0 review-card animate__animated animate__fadeInUp">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="rounded-circle me-3 d-flex justify-content-center align-items-center" style="
+                        width: 56px;
+                        height: 56px;
+                        background: #eee;
+                        border: 2px solid #000000;
+                        font-size: 2rem;
+                        color: #000000;
+                      ">
+                    <span class="fw-bold">?</span>
+                  </div>
+                  <div>
+                    <h5 class="mb-0 fw-bold" style="color: #000000">
+                      Anonymous
+                    </h5>
+                    <div class="text-warning small">★★★★★</div>
+                  </div>
+                </div>
+                <p class="mb-0" style="color: #000000">
+                    Fast delivery and fresh vegetables! The service was reliable and the produce arrived in perfect condition. Highly recommended!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div
+              class="card shadow rounded-4 h-100 border-0 review-card animate__animated animate__fadeInUp animate__delay-1s">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="rounded-circle me-3 d-flex justify-content-center align-items-center" style="
+                        width: 56px;
+                        height: 56px;
+                        background: #eee;
+                        border: 2px solid #000000;
+                        font-size: 2rem;
+                        color: #000000;
+                      ">
+                    <span class="fw-bold">?</span>
+                  </div>
+                  <div>
+                    <h5 class="mb-0 fw-bold" style="color: #000000">
+                      Anonymous
+                    </h5>
+                    <div class="text-warning small">★★★★★</div>
+                  </div>
+                </div>
+                <p class="mb-0" style="color: #000000">
+                    Ordered prawns and they arrived super fresh! Delivery was quick and the packaging kept everything cold. Very satisfied!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div
+              class="card shadow rounded-4 h-100 border-0 review-card animate__animated animate__fadeInUp animate__delay-2s">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="rounded-circle me-3 d-flex justify-content-center align-items-center" style="
+                        width: 56px;
+                        height: 56px;
+                        background: #eee;
+                        border: 2px solid #000000;
+                        font-size: 2rem;
+                        color: #000000;
+                      ">
+                    <span class="fw-bold">?</span>
+                  </div>
+                  <div>
+                    <h5 class="mb-0 fw-bold" style="color: #000000">
+                      Anonymous
+                    </h5>
+                    <div class="text-warning small">★★★★★</div>
+                  </div>
+                </div>
+                <p class="mb-0" style="color: #000000">
+                    Excellent monthly grocery delivery! Everything arrived on time and well-packed. Makes restocking my kitchen so easy and hassle-free.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>
+          .review-card {
+            background: linear-gradient(120deg, #fff 80%, #ffffff 100%);
+            transition: transform 0.3s, box-shadow 0.3s;
+          }
+
+          .review-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px #00000055, 0 2px 8px #b3e0ff55;
+          }
+
+          @media (max-width: 768px) {
+            .review-card {
+              margin-bottom: 1.5rem;
+            }
+          }
+        </style>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-4 mb-4">
+          <a href="index.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">
+            Home
+          </a>
+
+          <div class="dropdown mb-3">
+            <h4 class="fw-bold text-decoration-none text-pink d-flex align-items-center dropdown-toggle"
+              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="font-size: 1.2rem">
+              Products
+            </h4>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li>
+                <a class="dropdown-item" href="src/meat.html">Meats</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="src/vegetable.html">Vegetables</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="src/groceries.html">Groceries</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex flex-column gap-2">
+          <a href="src/howtouse.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">How to Buy</a>
+          <a href="src/faq.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">FAQ</a>
+          <a href="src/about.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">About</a>
+          <a href="src/news.html" class="fw-bold text-decoration-none text-pink d-flex align-items-center mb-3"
+            style="font-size: 1.2rem">News</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <hr><br>
+        <p style="color: #ffffff; text-size-adjust: 10px">
+          &copy; <i>2025</i> <b>NEEDS</b> <i>Delivery Service</i>. All rights reserved.
+        </p>
+        <br>
+        <p class="mb-0 small">
+          <i>Revived by,</i>
+          <strong><br /><br /><a href="https://yapverse.com/"><img src="src/img/yap logo 2_page-0001.jpg" alt=""
+                style="height: 50px" /></a></strong>
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .text-pink {
+        color: #ffffff !important;
+        transition: color 0.3s ease;
+      }
+
+      .text-pink:hover {
+        color: #ffffff !important;
+      }
+
+      footer {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      footer ul li {
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      const depth = (currentPath.match(/\//g) || []).length - 1;
+
+      // Calculates how many levels deep we are (../ for each level)
+      const basePath = "../".repeat(depth > 0 ? depth : 0);
+
+      const navLinks = document.querySelectorAll(
+        "nav a, footer a, .dropdown-menu a"
+      );
+
+      navLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+
+        // Fix only src-based internal links
+        if (href && href.startsWith("src/")) {
+          link.setAttribute("href", basePath + href);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html> -->
