@@ -23,27 +23,33 @@ A professional and modern landing page created for **Needs Delivery Services**, 
 | Hosting    | Vercel     |
 
 ## 📂 Project Structure
-
+<pre>
 needs-delivery-services/
 │
 ├── index.html
-├── style.css
-├── script.js
-└── assets/
-├── images/
-└── icons/
-
+└── src    
+      ├──add-info
+      ├──img
+      ├──video
+      ├──about.html
+      ├──faq.html
+      ├──groceries.html
+      ├──howtouse.html
+      ├──meat.html
+      ├──news.html
+      └──vegetable.html
+</pre>
 ## 🔧 How to Run Locally
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/needs-delivery-services.git
+   git clone https://github.com/techwinson/NEEDS.git
    ````
 
 2. Enter the project directory:
 
    ```bash
-   cd needs-delivery-services
+   cd NEEDS
    ```
 
 3. Open `index.html` directly in any browser or use VS Code Live Server:
